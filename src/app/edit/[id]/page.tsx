@@ -4,19 +4,26 @@ import { notFound } from "next/navigation"
 
 export const revalidate = 0
 
-interface PageProps {
-    params: { id: string }
+type Params = { id: string }
+
+
+export async function generateMetadata(props: {
+    params: Params
+}) {
+    const { params } = props
+    const { id } = params
+
+    return {
+        title: `Todo ${id}`,
+    }
 }
 
-export default async function Page({ params }: PageProps) {
-    // Fetch the todo from the API
-    const todo = await fetchTodo(params.id)
+export default async function Page({ params }: { params: Params, }) {
+    const todo = await fetchTodo(params.id) 
 
     if (!todo) {
-        // If no todo is found, navigate to a 404 page
         notFound()
     }
 
-    // Render the Todo component with the todo data
     return <Todo {...todo} />
 }
