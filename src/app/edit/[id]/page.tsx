@@ -1,25 +1,23 @@
+
 import Todo from "@/app/components/Todo"
 import fetchTodo from "@/lib/fetchTodo"
 import { notFound } from "next/navigation"
 
 export const revalidate = 0
 
-type Params = { id: string }
-
-export async function generateMetadata({ params }: { params: Params }) {
-    const { id } = params
-
-    return {
-        title: `Todo ${id}`,
+type Props = {
+    params: {
+        id: string
     }
 }
 
-export default async function Page({ params }: { params: Params }) {
-    const todo = await fetchTodo(params.id)
+export default async function page({ params: { id } }: Props) {
 
-    if (!todo) {
-        notFound()
-    }
+    const todo = await fetchTodo(id)
 
-    return <Todo {...todo} />
+    if (!todo) notFound()
+
+    return (
+        <Todo {...todo} />
+    )
 }
