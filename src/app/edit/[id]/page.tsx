@@ -4,7 +4,11 @@ import { notFound } from "next/navigation"
 
 export const revalidate = 0
 
-export default async function page({ params }: { params: { id: string } }) {
+interface PageProps {
+    params: { id: string }
+}
+
+export default async function Page({ params }: PageProps) {
     const todo = await fetchTodo(params.id)
 
     if (!todo) notFound()

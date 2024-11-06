@@ -34,12 +34,7 @@
       "id": "192b",
       "userId": 1,
       "title": "new todo",
-      "completed": false
-    },
-    {
-      "id": "f732",
-      "userId": 1,
-      "title": "bankai"
+      "completed": true
     }
   ]
 }
