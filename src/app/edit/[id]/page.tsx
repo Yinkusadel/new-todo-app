@@ -9,9 +9,14 @@ interface PageProps {
 }
 
 export default async function Page({ params }: PageProps) {
+    // Fetch the todo from the API
     const todo = await fetchTodo(params.id)
 
-    if (!todo) notFound()
+    if (!todo) {
+        // If no todo is found, navigate to a 404 page
+        notFound()
+    }
 
+    // Render the Todo component with the todo data
     return <Todo {...todo} />
 }

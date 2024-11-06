@@ -1,6 +1,4 @@
-
-
-export default async function fetchTodo(id: string) {
+export default async function fetchTodo(id: string): Promise<Todo | undefined> {
     const res = await fetch(`http://127.0.0.1:3500/todos/${id}`)
 
     if (!res.ok) return undefined

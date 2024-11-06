@@ -34,7 +34,7 @@
       "id": "192b",
       "userId": 1,
       "title": "new todo",
-      "completed": true
+      "completed": false
     }
   ]
 }
