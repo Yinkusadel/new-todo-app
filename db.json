@@ -28,13 +28,13 @@
       "userId": 1,
       "title": "hey hey",
       "id": "5",
-      "completed": true
+      "completed": false
     },
     {
       "id": "192b",
       "userId": 1,
       "title": "new todo",
-      "completed": false
+      "completed": true
     }
   ]
 }

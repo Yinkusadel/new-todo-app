@@ -1,9 +1,9 @@
 
 "use client"
 
-import { useRouter } from 'next/navigation'
-import { useState, useTransition, ChangeEvent, MouseEvent } from 'react'
 import Link from "next/link"
+import { useRouter } from 'next/navigation'
+import { useState, useTransition } from 'react'
 import { FaTrash } from 'react-icons/fa'
 
 export default function Todo(todo: Todo) {
@@ -13,7 +13,7 @@ export default function Todo(todo: Todo) {
 
     const isMutating = isFetching || isPending
 
-    const handleChange = async (e: ChangeEvent<HTMLInputElement>) => {
+    const handleChange = async () => {
         setIsFetching(true)
 
         const res = await fetch(`http://127.0.0.1:3500/todos/${todo.id}`, {
@@ -38,7 +38,7 @@ export default function Todo(todo: Todo) {
         })
     }
 
-    const handleDelete = async (e: MouseEvent<HTMLButtonElement>) => {
+    const handleDelete = async () => {
         setIsFetching(true)
 
         const res = await fetch(`http://127.0.0.1:3500/todos/${todo.id}`, {

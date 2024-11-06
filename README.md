@@ -18,7 +18,7 @@
 - Clone the project
 
 ```bash
-git clone git@github.com:Yinkusadel/basic-blog.git
+git clone git@github.com:Yinkusadel/new-todo-app.git
 ```
 
 - Install Dependencies
