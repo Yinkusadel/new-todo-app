@@ -6,11 +6,7 @@ export const revalidate = 0
 
 type Params = { id: string }
 
-
-export async function generateMetadata(props: {
-    params: Params
-}) {
-    const { params } = props
+export async function generateMetadata({ params }: { params: Params }) {
     const { id } = params
 
     return {
@@ -18,8 +14,8 @@ export async function generateMetadata(props: {
     }
 }
 
-export default async function Page({ params }: { params: Params, }) {
-    const todo = await fetchTodo(params.id) 
+export default async function Page({ params }: { params: Params }) {
+    const todo = await fetchTodo(params.id)
 
     if (!todo) {
         notFound()
